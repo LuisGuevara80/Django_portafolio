@@ -90,12 +90,12 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # mientras estoy en local uso esta base de datos
         }
     }
 else:
     DATABASES = {
-        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+        'default': dj_database_url.config(default=os.getenv('DATABASE_URL')) # cuando la despliego uso la base de datos de PostgreSQL(Pero, está protegigo en un .env)
     }
 
 

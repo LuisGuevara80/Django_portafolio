@@ -1,0 +1,18 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+<div class="text-center">
+    <h2>{{post.title}}</h2>
+    <h3 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h3>
+
+    <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+
+    <div class="my-4">
+        <p>{{post.description|safe}}</p> <!-- se utiliza para que la información que venga como html la interprete -->
+        <p>Repositorio:</p>
+        <a href="https://github.com/LuisGuevara80/Python" class="btn btn-light rounded-0 btn-sm" target="_blank">https://github.com/LuisGuevara80/Python</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row">
+    <div class="col-md-4">
+        <img src="{% static 'portafolio/LuisGuevara-nofondo.png' %}" class="img-fluid rounded" alt="">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>Yo soy <strong>Luis Guevara</strong></h1>
+        <h3>Soy un estudiante de Ingeniería en sistemas</h3>
+        <p class="lh-base text">Me considero un apasionado del desarrollo de software, con un enfoque inquebrantable en la excelencia. Mi experiencia en Python, C++, y Django se ha forjado a través de proyectos prácticos que han enriquecido mi comprensión y habilidades en este campo. Constantemente busco desafíos para abordar con creatividad y eficiencia, siempre manteniendo un alto estándar de calidad e innovación. Mi enfoque proactivo y mi firme determinación me impulsan hacia el progreso y el crecimiento profesional, siempre en busca de nuevas oportunidades para aprender y contribuir significativamente al mundo del desarrollo de software.</p>
+        <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portafolio/Cv - Luis Eduardo Guevara Juárez.pdf' %}" target="_blank">Download CV</a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h3>Mis proyectos</h3>
+    <p>Bienvenido a mi portafolio como desarrollador de software. A lo largo de mi carrera, he creado varios proyectos que destacan mi habilidad para desarrollar soluciones efectivas y de alta calidad. Cada proyecto muestra mi compromiso con la excelencia y mi capacidad para abordar desafíos de manera creativa y efectiva. Encantado de compartir algunos de mis proyectos.</p>
+    
+    {% for project in projects %}
+    
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project h-100">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top" style="height: 200px; object-fit: cover;">  <!-- Se tiene que llamar junto al url, ya que de lo contrario no puede encontrar la img. -->
+            <div class="card-body">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>       
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+    
+    {% endblock %}
+</div>
+
+
